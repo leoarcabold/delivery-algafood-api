@@ -5,29 +5,24 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
+import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-
 @Entity
-@Table(name = "permissao")
 public class Permissao {
 
+	@EqualsAndHashCode.Include
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // o mysql faz o controle de geração do autoincremento
-	@Column
-	@EqualsAndHashCode.Exclude
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	@Column
+	
+	@Column(nullable = false)
 	private String nome;
-
-	@Column
+	
+	@Column(nullable = false)
 	private String descricao;
+	
 }

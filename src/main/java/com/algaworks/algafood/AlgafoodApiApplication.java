@@ -2,9 +2,8 @@ package com.algaworks.algafood;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 @SpringBootApplication
-@ResponseBody// ("/hello")
 public class AlgafoodApiApplication {
 
 	public static void main(String[] args) {
