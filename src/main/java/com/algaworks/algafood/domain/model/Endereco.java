@@ -1,48 +1,33 @@
 package com.algaworks.algafood.domain.model;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
-
-@Entity
-@Table(name = "endereco")
+@Data
+@Embeddable
 public class Endereco {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // o mysql faz o controle de geração do autoincremento
-	@Column
-	@EqualsAndHashCode.Exclude
-	private Long id;
-
-	@Column
+	@Column(name = "endereco_cep")
 	private String cep;
-
-	@Column
+	
+	@Column(name = "endereco_logradouro")
 	private String logradouro;
 	
-	@Column
+	@Column(name = "endereco_numero")
 	private String numero;
 	
-	@Column
+	@Column(name = "endereco_complemento")
 	private String complemento;
 	
-	@Column
+	@Column(name = "endereco_bairro")
 	private String bairro;
 	
 	@ManyToOne
-	@JoinColumn
+	@JoinColumn(name = "endereco_cidade_id")
 	private Cidade cidade;
+	
 }
